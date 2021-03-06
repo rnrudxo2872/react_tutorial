@@ -1,0 +1,6 @@
+npx => 한번의 실행 목적으로 다운로드
+npx serve -s build => build documentory를 루트로 서브한다.
+
+개발환경에서 웹 deploy => 5.3 KB
+build를 하므로써 살균(압축)을 한 것을 deploy할 시 => 82B
+====> 획기적으로 줄어든다.
