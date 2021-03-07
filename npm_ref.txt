@@ -1,3 +1,5 @@
+npm run start => 개발환경에서 웹앱 실행
+
 npx => 한번의 실행 목적으로 다운로드
 npx serve -s build => build documentory를 루트로 서브한다.
 
