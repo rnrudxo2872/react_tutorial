@@ -2,11 +2,17 @@ import {Component} from 'react';
 
 class Subject extends Component{
     render(){
+        var tags = this.props.data;
+        var i = 0;
+        var topics = [];
+        while(i < tags.length){
+            topics.push(<li key={tags[i].id}><a href={"/content/" + tags[i].id}>{tags[i].title}</a></li>)
+            i++;
+        }
+
       return(
         <ul>
-          <li><a href="/html.html">html</a></li>
-          <li><a href="/css.html">css</a></li>
-          <li><a href="/react.html">react</a></li>
+          {topics}
         </ul>
       )
     }
