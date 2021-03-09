@@ -24,8 +24,10 @@ class App extends Component{
       CurDesc = this.state.subject.desc;
     } else if(this.state.mode == "topic"){
       var i = 0;
-      while(i < this.topic.length){
-        if(this.topic[i].id == this.state.selected_content_id){
+      console.log(this.state.topic.length);
+      debugger;
+      while(i < this.state.topic.length){
+        if(this.state.topic[i].id == this.state.selected_content_id){
           CurTitle = this.state.topic[i].title;
           CurDesc = this.state.topic[i].decs;
           break;
@@ -35,9 +37,28 @@ class App extends Component{
     }
     return(//하나의 최상위 tag가 있어야 함.  === > javascript에서는 tag를 그대로 못쓴다. 하지만 여기에는 쓸수 있다. 왜? jsx facebook에서 개발한 유사 javascipt언어이기 때문이다.     
       <article className = "App">   
-      <TopOfPage sub={this.state.subject} />
-      <Subject data={this.state.topic} />
-      <Content title={CurTitle} desc={CurDesc}/>
+      <TopOfPage 
+      sub={this.state.subject} 
+      PageChange = {
+        function(){
+          this.setState({mode:"main"});
+        }.bind(this)
+      }
+      />
+      <Subject 
+      data={this.state.topic}
+      PageChange={
+        function (id) {
+          this.setState({
+            mode:"topic",
+            selected_content_id:Number(id)}
+          )
+        }.bind(this)
+      }
+      />
+      <Content 
+      title={CurTitle}
+      desc={CurDesc} />
       </article>
     )
   }

@@ -9,11 +9,14 @@ class Subject extends Component{
             topics.push(<li key={tags[i].id}>
               <a 
               href={"/content/" + tags[i].id}
+              data-topic={tags[i].id}
               onClick={
                 function(e){
-                  console.log(e);
+                  e.preventDefault();
+                  console.log(this.props);
                   debugger;
-                }
+                  this.props.PageChange(e.target.dataset.topic);
+                }.bind(this)
               }
               >
                 {tags[i].title}

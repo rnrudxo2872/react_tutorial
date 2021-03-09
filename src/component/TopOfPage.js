@@ -6,8 +6,11 @@ class TopOfPage extends Component{
       return(
         <h1><a 
         href="/"
-        
-        >
+        onClick={
+          function (e) {
+            e.preventDefault();
+            this.props.PageChange();
+          }.bind(this)}>
           {this.props.sub.title}
           </a>
         </h1>
