@@ -6,7 +6,19 @@ class Subject extends Component{
         var i = 0;
         var topics = [];
         while(i < tags.length){
-            topics.push(<li key={tags[i].id}><a href={"/content/" + tags[i].id}>{tags[i].title}</a></li>)
+            topics.push(<li key={tags[i].id}>
+              <a 
+              href={"/content/" + tags[i].id}
+              onClick={
+                function(e){
+                  console.log(e);
+                  debugger;
+                }
+              }
+              >
+                {tags[i].title}
+              </a>
+            </li>)
             i++;
         }
 
